@@ -1,5 +1,8 @@
 <?php
 
+use App\Challenge;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home')->middleware('is_admin');
+Route::view('/guest', 'guest')->name('guest')->middleware('is_guest');
