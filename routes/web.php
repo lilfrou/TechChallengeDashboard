@@ -23,4 +23,4 @@ Route::get('/', function () {
 Auth::routes();
 Route::resource('/users', 'UserController');
 Route::resource('/home', 'ChallengeController')->middleware('is_admin');
-Route::view('/guest', 'guest')->name('guest')->middleware('is_guest');
+Route::get('/guest', 'GuestController@index')->name('guest')->middleware('is_guest');
