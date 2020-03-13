@@ -24,8 +24,18 @@
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    Tech Challenge
+                    Tech CHallenge
                 </a>
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-outline-dark">
+                      <input type="radio" name="options" id="option1" autocomplete="off" onclick="window.location.href = '/home';" >Challenges
+                    </label>
+                    <label class="btn btn-outline-dark">
+                      <input type="radio" name="options" id="option2" autocomplete="off" onclick="window.location.href = '/users';">Users
+                    </label>
+
+                  </div>
+
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
                 </button>

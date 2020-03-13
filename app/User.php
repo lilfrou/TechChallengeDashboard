@@ -36,9 +36,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
     public function challenges()
     {
         return $this->belongsToMany(Challenge::class)->withPivot(['comment'])->withTimestamps();
     }
+
 
 }

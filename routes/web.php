@@ -21,6 +21,6 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home')->middleware('is_admin');
+Route::resource('/users', 'UserController');
+Route::resource('/home', 'ChallengeController')->middleware('is_admin');
 Route::view('/guest', 'guest')->name('guest')->middleware('is_guest');

@@ -2,11 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Challenge;
 use App\User;
 use Illuminate\Http\Request;
 
-class ChallengeController extends Controller
+class UserController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +15,8 @@ class ChallengeController extends Controller
     public function index()
     {
         //
-        $challenges=Challenge::all();
-        return view('home',compact('challenges'));
+        $users=User::all();
+        return view('user.index',compact('users'));
     }
 
     /**
@@ -39,6 +38,8 @@ class ChallengeController extends Controller
     public function store(Request $request)
     {
         //
+
+
     }
 
     /**
@@ -50,6 +51,8 @@ class ChallengeController extends Controller
     public function show($id)
     {
         //
+        $user=User::findOrfail($id);
+
     }
 
     /**
@@ -72,7 +75,12 @@ class ChallengeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        User::where('id', $request->id)->update([
+            'auth' => $request->auth,
+        ]);
+        return back()->with('positive', 'Updated');
+
+
     }
 
     /**
